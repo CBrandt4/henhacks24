@@ -28,7 +28,7 @@ export default function PecsItemGridDisplay({
     );
   }, [category, items, homescreen]);
   return (
-    <div className="grid w-full grid-cols-7 grid-rows-3 items-center justify-center gap-4 p-6">
+    <div className="grid w-full grid-cols-7 grid-rows-3 items-center justify-center gap-4 px-6">
       {selectedItems.slice(0, 18).map((item) => (
         <div key={item.id} className="flex justify-center">
           <PecsItemCard item={item} itemClicked={itemClicked} />

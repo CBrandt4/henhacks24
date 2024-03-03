@@ -13,7 +13,7 @@ export default function PecsItemCard({
 }) {
   return (
     <Card
-      className="flex size-32 flex-col p-2"
+      className="flex size-32 shrink-0 flex-col p-2"
       onClick={() => itemClicked?.(item)}
     >
       <CardContent className="relative grow p-0">
