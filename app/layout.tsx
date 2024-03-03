@@ -3,6 +3,7 @@ import { Roboto } from "next/font/google";
 import "./globals.css";
 import TrpcProvider from "@/lib/trpc/trpc_client";
 import Link from "next/link";
+import { cn } from "@/lib/utils";
 
 const roboto = Roboto({ weight: "900", subsets: ["latin"] });
 
@@ -20,23 +21,29 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body
-        className={roboto.className + " flex h-screen flex-col justify-between"}
+        className={cn(
+          roboto.className,
+          "flex h-screen flex-col justify-between",
+        )}
       >
         <TrpcProvider>
-          {children}
-          <div className="flex h-16 w-full items-center justify-center bg-secondary object-bottom text-foreground">
-            <div className="flex items-center justify-center text-center text-sm">
+          <main className="flex min-h-screen flex-col items-center justify-between">
+            <div className="flex min-h-full min-w-full justify-center p-6">
+              {children}
+            </div>
+            <div className="flex h-16 w-full items-center justify-center justify-self-end bg-secondary object-bottom text-center text-sm">
               <p>
-                Built for the 2024 HenHacks Hackathon | Image Library from&nbsp;
+                Built for the 2024 HenHacks Hackathon | All images from&nbsp;
                 <Link
                   href="https://www.flaticon.com/free-icons/penguin"
                   title="penguin icons"
                 >
-                  Penguin icons, by Vectors Market - Flaticon
+                  Flaticon
                 </Link>
+                &nbsp; and it&apos;s contributing artists
               </p>
             </div>
-          </div>
+          </main>
         </TrpcProvider>
       </body>
     </html>

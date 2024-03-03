@@ -14,7 +14,7 @@ export default function PecsCategoryCard({
   const [src, setSrc] = useState<string>("/images/" + category.name + ".png");
   return (
     <Card
-      className="flex size-32 flex-col bg-green-300 p-2"
+      className="flex size-32 flex-col bg-green-300 p-2 hover:opacity-80"
       onClick={() => categoryClicked(category)}
     >
       <CardContent className="relative grow p-0">

@@ -4,9 +4,8 @@ import { trpc } from "@/lib/trpc/trpc_client";
 import { Alert, AlertDescription, AlertTitle } from "../ui/alert";
 import { TextInputProps } from "./input-props";
 import PecsEditor from "./pecs/pecs-editor";
-import dynamic from "next/dynamic";
 
-function PecsInput({ inputHandler }: TextInputProps) {
+export default function PecsInput({ inputHandler }: TextInputProps) {
   const [categories, homescreen] = trpc.useQueries((t) => [
     t.categories.list(),
     t.pecsItems.homescreen(),
@@ -14,7 +13,7 @@ function PecsInput({ inputHandler }: TextInputProps) {
 
   if (categories.status === "pending" || homescreen.status === "pending") {
     return (
-      <div className="flex p-24">
+      <div className="flex w-full flex-col p-24 text-center">
         <Alert>
           <AlertTitle>Loading...</AlertTitle>
         </Alert>
@@ -23,7 +22,7 @@ function PecsInput({ inputHandler }: TextInputProps) {
   }
   if (categories.status === "error" || homescreen.status === "error") {
     return (
-      <div className="flex p-24">
+      <div className="flex w-full flex-col p-24 text-center">
         {categories.error ? (
           <Alert variant="destructive">
             <AlertTitle>Error</AlertTitle>
@@ -48,7 +47,3 @@ function PecsInput({ inputHandler }: TextInputProps) {
     />
   );
 }
-
-export default dynamic(() => Promise.resolve(PecsInput), {
-  ssr: false,
-});
