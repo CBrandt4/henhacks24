@@ -14,7 +14,7 @@ export default function Page() {
       inputHandler={(sentence: string) =>
         completer.mutate(sentence, {
           onSuccess: (result) =>
-            textToSpeech.mutate("Hello from chatgpt", {
+            textToSpeech.mutate(result, {
               onSuccess: (audioUrl) => {
                 new Audio(audioUrl).play();
               },
