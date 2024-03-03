@@ -4,33 +4,33 @@
 
 @layer base {
   :root {
-    --background: hsl(#0d1921);
-    --foreground: hsl(#ced9e1);
+    --background: 204 43% 9%;
+    --foreground: 205 24% 85%;
 
-    --card: hsl(#bd8d13);
-    --card-foreground: hsl(#040f16);
+    --card: 43 82% 41%;
+    --card-foreground: 203 69% 5%;
 
-    --popover: hsl(#f7d065);
-    --popover-foreground: hsl(#ced9e1);
+    --popover: 44 90% 68%;
+    --popover-foreground: 205 24% 85%;
 
-    --primary: hsl(#d92a2a);
-    --primary-foreground: hsl(#ced9e1);
+    --primary: 0 70% 51%;
+    --primary-foreground: 205 24% 85%;
 
-    --secondary: hsl(#4d278b);
-    --secondary-foreground: hsl(#ced9e1);
+    --secondary: 263 56% 35%;
+    --secondary-foreground: 205 24% 85%;
 
-    --muted: hsl(#4c9c4a);
-    --muted-foreground: hsl(#ced9e1);
+    --muted: 119 36% 45%;
+    --muted-foreground: 205 24% 85%;
 
-    --accent: hsl(#f7d065);
-    --accent-foreground: hsl(#ced9e1);
+    --accent: 44 90% 68%;
+    --accent-foreground: 205 24% 85%;
 
-    --destructive: hsl(#835a4d);
-    --destructive-foreground: hsl(#ced9e1);
+    --destructive: 14 26% 41%;
+    --destructive-foreground: 205 24% 85%;
 
-    --border: hsl(#374a5d);
-    --input: hsl(#374a5d);
-    --ring: hsl(#374a5d);
+    --border: 210 26% 29%;
+    --input: 210 26% 29%;
+    --ring: 210 26% 29%;
 
     --radius: 0.5rem;
   }
