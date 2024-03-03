@@ -18,7 +18,7 @@ export default function PecsEditor({
   return (
     <div className="flex flex-col items-center justify-start gap-4">
       <div className="w-full p-6">
-        <div className="flex w-full items-center justify-start gap-4 rounded-[1.75rem] border-2 border-black p-1">
+        <div className="flex w-full items-center justify-start gap-4 rounded-[1.75rem] border-2 border-border p-1">
           {sentenceItems.map((item) => (
             <PecsItemCard key={item.id} item={item} />
           ))}
