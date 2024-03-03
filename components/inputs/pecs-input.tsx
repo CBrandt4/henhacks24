@@ -4,8 +4,9 @@ import { trpc } from "@/lib/trpc/trpc_client";
 import { Alert, AlertDescription, AlertTitle } from "../ui/alert";
 import { TextInputProps } from "./input-props";
 import PecsEditor from "./pecs/pecs-editor";
+import dynamic from "next/dynamic";
 
-export default function PecsInput({ inputHandler }: TextInputProps) {
+function PecsInput({ inputHandler }: TextInputProps) {
   const [categories, homescreen] = trpc.useQueries((t) => [
     t.categories.list(),
     t.pecsItems.homescreen(),
@@ -47,3 +48,7 @@ export default function PecsInput({ inputHandler }: TextInputProps) {
     />
   );
 }
+
+export default dynamic(() => Promise.resolve(PecsInput), {
+  ssr: false,
+});
