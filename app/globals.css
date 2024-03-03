@@ -4,33 +4,33 @@
 
 @layer base {
   :root {
-    --background: #0d1921;
-    --foreground: #ced9e1;
+    --background: hsl(#0d1921);
+    --foreground: hsl(#ced9e1);
 
-    --card: #bd8d13;
-    --card-foreground: #ced9e1;
+    --card: hsl(#bd8d13);
+    --card-foreground: hsl(#040f16);
 
-    --popover: #f7d065;
-    --popover-foreground: #ced9e1;
+    --popover: hsl(#f7d065);
+    --popover-foreground: hsl(#ced9e1);
 
-    --primary: #d92a2a;
-    --primary-foreground: #ced9e1;
+    --primary: hsl(#d92a2a);
+    --primary-foreground: hsl(#ced9e1);
 
-    --secondary: #4d278b;
-    --secondary-foreground: #ced9e1;
+    --secondary: hsl(#4d278b);
+    --secondary-foreground: hsl(#ced9e1);
 
-    --muted: #4c9c4a;
-    --muted-foreground: #ced9e1;
+    --muted: hsl(#4c9c4a);
+    --muted-foreground: hsl(#ced9e1);
 
-    --accent: #f7d065;
-    --accent-foreground: #ced9e1;
+    --accent: hsl(#f7d065);
+    --accent-foreground: hsl(#ced9e1);
 
-    --destructive: #9f391a;
-    --destructive-foreground: #ced9e1;
+    --destructive: hsl(#835a4d);
+    --destructive-foreground: hsl(#ced9e1);
 
-    --border: #374a5d;
-    --input: #374a5d;
-    --ring: #374a5d;
+    --border: hsl(#374a5d);
+    --input: hsl(#374a5d);
+    --ring: hsl(#374a5d);
 
     --radius: 0.5rem;
   }

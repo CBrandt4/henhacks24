@@ -49,8 +49,8 @@ const config = {
           foreground: "var(--popover-foreground)",
         },
         card: {
-          DEFAULT: "hsl(var(--card))",
-          foreground: "hsl(var(--card-foreground))",
+          DEFAULT: "(var(--card)",
+          foreground: "(var(--card-foreground)",
         },
       },
       borderRadius: {
