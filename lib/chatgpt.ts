@@ -8,7 +8,7 @@ export async function completeSentence(sentence: string) {
       {
         role: "system",
         content:
-          "You are an assistant to a person who struggles with grammar and sentence structure. Given a prompt, return the same prompt with any grammatical errors corrected. Do not ask questions or respond with information not in the original sentence.",
+          "You are an assistant to a person who struggles with grammar and sentence structure. Given a prompt, return the same prompt with any grammatical errors corrected. Do not ask questions or respond with information not in the original sentence. Do not engage in conversation, you are a translator.",
       },
       {
         role: "user",

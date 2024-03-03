@@ -15,7 +15,7 @@ export default function PecsItemCard({
   const [src, setSrc] = useState<string>("/images/" + item.word + ".png");
   return (
     <Card
-      className="flex size-32 shrink-0 flex-col p-2"
+      className="flex size-32 shrink-0 flex-col p-2 hover:opacity-80"
       onClick={() => itemClicked?.(item)}
     >
       <CardContent className="relative grow p-0">
