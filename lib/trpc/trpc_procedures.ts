@@ -1,6 +1,9 @@
 import { z } from "zod";
 import { procedure, router } from "./trpc_server";
 import { completeSentence } from "../chatgpt";
+import { CategoryWithPecsItems, listCategories } from "../database/categories";
+import { PecsItem } from "../schema/pecs-item";
+import { homescreenPecsItems } from "../database/pecs-item";
 
 export const appRouter = router({
   generative: {
@@ -10,6 +13,16 @@ export const appRouter = router({
       .mutation(async ({ input: sentence }) => {
         return await completeSentence(sentence);
       }),
+  },
+  categories: {
+    list: procedure.output(CategoryWithPecsItems.array()).query(async () => {
+      return await listCategories();
+    }),
+  },
+  pecsItems: {
+    homescreen: procedure.output(PecsItem.array()).query(async () => {
+      return await homescreenPecsItems();
+    }),
   },
 });
 

@@ -1,6 +1,7 @@
 import { Client } from "@planetscale/database";
 import { drizzle } from "drizzle-orm/planetscale-serverless";
 import env from "../env/private_env";
+import * as schema from "../schema/schema";
 
 const client = new Client({
   host: env.DATABASE_HOST,
@@ -9,6 +10,6 @@ const client = new Client({
 });
 
 const database = drizzle(client, {
-  schema: {},
+  schema: { ...schema },
 });
 export default database;
