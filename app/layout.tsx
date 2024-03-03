@@ -1,13 +1,13 @@
 import type { Metadata } from "next";
-import { Inter } from "next/font/google";
+import { Roboto } from "next/font/google";
 import "./globals.css";
 import TrpcProvider from "@/lib/trpc/trpc_client";
 import Link from "next/link";
 
-const inter = Inter({ subsets: ["latin"] });
+const roboto = Roboto({ weight: "900", subsets: ["latin"] });
 
 export const metadata: Metadata = {
-  title: "Communication Tools",
+  title: "ChitChat",
   description:
     "Easy to use tools built to help people with autism communicate.",
 };
@@ -20,7 +20,7 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body
-        className={inter.className + " flex h-screen flex-col justify-between"}
+        className={roboto.className + " flex h-screen flex-col justify-between"}
       >
         <TrpcProvider>
           {children}
