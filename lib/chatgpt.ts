@@ -20,3 +20,17 @@ export async function completeSentence(sentence: string) {
 
   return completion.choices[0].message.content!;
 }
+
+export async function textToSpeech(sentence: string) {
+  const audio = await openai.audio.speech.create({
+    input: sentence,
+    model: "tts-1",
+    voice: "alloy",
+  });
+
+  const obj =
+    "data:audio/mpeg;base64," +
+    Buffer.from(await audio.arrayBuffer()).toString("base64");
+
+  return obj;
+}

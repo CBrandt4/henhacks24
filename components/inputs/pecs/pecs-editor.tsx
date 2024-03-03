@@ -19,34 +19,23 @@ export default function PecsEditor({
   const [sentenceItems, setSentenceItems] = useState<PecsItem[]>([]);
   return (
     <div className="flex flex-col items-center justify-start gap-4">
-      <div className="flex h-32 w-full items-center justify-between gap-2 p-6 pb-0">
+      <div className="flex h-40 w-full items-center justify-between gap-2 p-6 pb-0">
         <div className="flex size-full items-center justify-start gap-2 overflow-x-clip rounded-[1.75rem] border-2 border-border p-1">
           {sentenceItems.map((item) => (
             <PecsItemCard key={item.id} item={item} />
           ))}
         </div>
-        <Button
-          variant="destructive"
-          icon={<Trash2Icon />}
-          className="aspect-square h-32 grow"
-          onClick={() => setSentenceItems([])}
-        >
-          Clear
-        </Button>
-        <Button
-          variant="default"
-          icon={<SendHorizontalIcon />}
-          className="aspect-square h-32 grow"
-          onClick={() => setSentenceItems([])}
-        >
-          Submit
-        </Button>
       </div>
       <PecsItemGridDisplay
         items={items}
         homescreen={homescreen}
         itemClicked={(item: PecsItem) => {
           setSentenceItems([...sentenceItems, item]);
+        }}
+        clearSentenceItems={() => setSentenceItems([])}
+        submitSentenceItems={() => {
+          inputHandler(sentenceItems.map((i) => i.word).join(" "));
+          setSentenceItems([]);
         }}
       />
     </div>

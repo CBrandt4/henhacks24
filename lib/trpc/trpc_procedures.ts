@@ -1,6 +1,6 @@
 import { z } from "zod";
 import { procedure, router } from "./trpc_server";
-import { completeSentence } from "../chatgpt";
+import { completeSentence, textToSpeech } from "../chatgpt";
 import { CategoryWithPecsItems, listCategories } from "../database/categories";
 import { PecsItem } from "../schema/pecs-item";
 import { homescreenPecsItems } from "../database/pecs-item";
@@ -12,6 +12,12 @@ export const appRouter = router({
       .output(z.string())
       .mutation(async ({ input: sentence }) => {
         return await completeSentence(sentence);
+      }),
+    textToSpeech: procedure
+      .input(z.string())
+      .output(z.string())
+      .mutation(async ({ input: sentence }) => {
+        return await textToSpeech(sentence);
       }),
   },
   categories: {

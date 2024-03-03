@@ -1,35 +1,49 @@
 "use client";
 
-import { listCategories } from "@/lib/database/categories";
-import PecsEditor from "./pecs/pecs-editor";
-import { TextInputProps } from "./input-props";
 import { trpc } from "@/lib/trpc/trpc_client";
-import { Alert } from "../ui/alert";
+import { Alert, AlertDescription, AlertTitle } from "../ui/alert";
+import { TextInputProps } from "./input-props";
+import PecsEditor from "./pecs/pecs-editor";
 
 export default function PecsInput({ inputHandler }: TextInputProps) {
-  const categories = trpc.categories.list.useQuery();
-  const homescreen = trpc.pecsItems.homescreen.useQuery();
+  const [categories, homescreen] = trpc.useQueries((t) => [
+    t.categories.list(),
+    t.pecsItems.homescreen(),
+  ]);
 
-  if (categories.data && homescreen.data) {
+  if (categories.status === "pending" || homescreen.status === "pending") {
     return (
-      <PecsEditor
-        items={categories.data}
-        homescreen={homescreen.data}
-        inputHandler={inputHandler}
-      />
+      <div className="flex p-24">
+        <Alert>
+          <AlertTitle>Loading...</AlertTitle>
+        </Alert>
+      </div>
     );
-  } else if (categories.error || homescreen.error) {
+  }
+  if (categories.status === "error" || homescreen.status === "error") {
     return (
-      <div>
+      <div className="flex p-24">
         {categories.error ? (
-          <Alert variant="destructive">Error: {categories.error.message}</Alert>
+          <Alert variant="destructive">
+            <AlertTitle>Error</AlertTitle>
+            <AlertDescription>{categories.error.message}</AlertDescription>
+          </Alert>
         ) : null}
         {homescreen.error ? (
-          <Alert variant="destructive">Error: {homescreen.error.message}</Alert>
+          <Alert variant="destructive">
+            <AlertTitle>Error</AlertTitle>
+            <AlertDescription>{homescreen.error.message}</AlertDescription>
+          </Alert>
         ) : null}
       </div>
     );
-  } else {
-    return <Alert>Loading...</Alert>;
   }
+
+  return (
+    <PecsEditor
+      items={categories.data}
+      homescreen={homescreen.data}
+      inputHandler={inputHandler}
+    />
+  );
 }
